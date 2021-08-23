@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Add
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+
+
+    <!-- <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar> -->
+  </ion-header>
+  <form [formGroup]="AddData" (ngSubmit)="submit()">
+    <div>
+      <ion-label>Name : </ion-label>
+      <input formControlName="name" [(ngModel)]="name" />
+    </div>
+    <div class="error" *ngIf="submitform && f.name.errors">
+      <div *ngIf="f.name.errors.required">Please Enter your name</div>
+    </div>
+
+    <div>
+
+    </div>
+    <div>
+      <ion-label>Email : </ion-label>
+      <input type="text" formControlName="email" [(ngModel)]="email" />
+    </div>
+    <div class="error" *ngIf="submitform && f.email.errors">
+      <div *ngIf="f.email.errors.required">Please Enter your email</div>
+      <div *ngIf="f.email.errors.email">Email must be a valid email.</div>
+
+    </div>
+    <div>
+      <ion-label>Mobile : </ion-label>
+      <input type="number" formControlName="mobile" [(ngModel)]="mobile" />
+
+    </div>
+    <div class="error" *ngIf="submitform && f.mobile.errors">
+      <div *ngIf="f.mobile.errors.required">Please Enter your mobile number</div>
+      <div *ngIf="f.mobile.errors.pattern">Please enter 10 digit mobile number</div>
+
+
+
+    </div>
+
+    <div>
+      <button type="submit">Save</button>
+    </div>
+  </form>
+
+  <div>
+    <button type="button" (click)="listuser()">List user</button>
+  </div>
+  <!-- 
+  <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer"
+        href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div> -->
+</ion-content>
